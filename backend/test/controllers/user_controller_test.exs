@@ -19,7 +19,6 @@ defmodule Firestorm.UserControllerTest do
     conn = get conn, user_path(conn, :show, user)
     assert json_response(conn, 200)["data"] == %{"id" => user.id,
       "email" => user.email,
-      "encrypted_password" => user.encrypted_password,
       "username" => user.username}
   end
 
