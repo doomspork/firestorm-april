@@ -19,7 +19,7 @@ defmodule Firestorm.Mixfile do
   def application do
     [mod: {Firestorm, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :comeonin]]
+                    :phoenix_ecto, :postgrex, :comeonin, :ueberauth, :ueberauth_identity]]
   end
 
   # Specifies which paths to compile per environment.
@@ -33,11 +33,14 @@ defmodule Firestorm.Mixfile do
      [{:comeonin, "~> 2.3"},
       {:cowboy, "~> 1.0"},
       {:gettext, "~> 0.9"},
+      {:guardian, "~> 0.10"},
       {:phoenix, "~> 1.1.4"},
       {:phoenix_ecto, "~> 2.0"},
       {:phoenix_html, "~> 2.4"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
-      {:postgrex, ">= 0.0.0"}]
+      {:postgrex, ">= 0.0.0"},
+      {:ueberauth, "~> 0.2"},
+      {:ueberauth_identity, "~> 0.2"}]
   end
 
   # Aliases are shortcut or tasks specific to the current project.
