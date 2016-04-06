@@ -13,9 +13,9 @@ defmodule Firestorm.UserControllerTest do
   end
 
   test "shows chosen resource", %{conn: conn} do
-    user = Repo.insert! %User{}
+    user = Repo.insert! %User{email: "test@example.com", username: "test"}
     conn = get conn, user_path(conn, :show, user)
-    assert json_response(conn, 200)["data"] == %{"id" => user.id}
+    assert json_response(conn, 200)["data"] == %{"email" => user.email, "id" => user.id, "username" => user.username}
   end
 
   test "does not show resource and instead throw error when id is nonexistent", %{conn: conn} do
