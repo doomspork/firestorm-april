@@ -2,7 +2,7 @@ defmodule Firestorm.UserControllerTest do
   use Firestorm.ConnCase
 
   alias Firestorm.User
-  @valid_attrs %{email: "test@example.com", encrypted_password: "some content", username: "test"}
+  @valid_attrs %{email: "test@example.com", username: "test"}
   @invalid_attrs %{}
 
   setup %{conn: conn} do
@@ -29,7 +29,8 @@ defmodule Firestorm.UserControllerTest do
   end
 
   test "creates and renders resource when data is valid", %{conn: conn} do
-    conn = post conn, user_path(conn, :create), user: @valid_attrs
+    attrs = Map.put(@valid_attrs, :password, "password1")
+    conn = post conn, user_path(conn, :create), user: attrs
     assert json_response(conn, 201)["data"]["id"]
     assert Repo.get_by(User, @valid_attrs)
   end
