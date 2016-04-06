@@ -2,7 +2,7 @@ defmodule Firestorm.UserControllerTest do
   use Firestorm.ConnCase
 
   alias Firestorm.User
-  @valid_attrs %{email: "some content", encrypted_password: "some content", username: "some content"}
+  @valid_attrs %{email: "test@example.com", encrypted_password: "some content", username: "test"}
   @invalid_attrs %{}
 
   setup %{conn: conn} do

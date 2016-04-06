@@ -15,5 +15,8 @@ defmodule Firestorm.User do
   def changeset(model, params \\ :empty) do
     model
     |> cast(params, @required_fields, @optional_fields)
+    |> validate_format(:email, ~r/@/)
+    |> validate_length(:username, min: 1, max: 20)
+    |> unique_constraint(:username)
   end
 end
