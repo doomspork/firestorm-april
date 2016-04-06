@@ -18,4 +18,10 @@ defmodule Firestorm.Router do
 
     get "/", PageController, :index
   end
+
+  scope "/api" do
+    pipe_through :api
+
+    resources "/users", Firestorm.UserController, except: [:new, :edit]
+  end
 end
