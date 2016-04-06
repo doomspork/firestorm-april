@@ -1,6 +1,8 @@
 defmodule Firestorm.Router do
   use Firestorm.Web, :router
 
+  alias Firestorm.UserController
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -19,8 +21,9 @@ defmodule Firestorm.Router do
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", Firestorm do
-  #   pipe_through :api
-  # end
+  scope "/api" do
+    pipe_through :api
+
+    resources "/users", UserController, except: [:delete, :edit, :new, :update]
+  end
 end
