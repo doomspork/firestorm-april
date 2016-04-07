@@ -35,5 +35,7 @@ defmodule Firestorm.Endpoint do
     key: "_firestorm_key",
     signing_salt: "fAqmpiG7"
 
+
+  plug Corsica
   plug Firestorm.Router
 end
