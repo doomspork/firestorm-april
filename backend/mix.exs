@@ -40,7 +40,8 @@ end
      {:comeonin, "~> 2.3"},
      {:ueberauth, "~> 0.2"},
      {:ueberauth_identity, "~> 0.2"},
-     {:guardian, "~> 0.10"}]
+     {:guardian, "~> 0.10"},
+     {:corsica, "~> 0.4"}]
   end
 
   # Aliases are shortcut or tasks specific to the current project.
